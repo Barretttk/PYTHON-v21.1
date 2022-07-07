@@ -6,7 +6,7 @@ def hello_world():
 
 @app.route('/dojo')
 def dojo():
-    return "dojo"
+    return "dojo!"
 
 # @app.route('/hello/<name>') # for a route '/hello/____' anything after '/hello/' gets passed as a variable 'name'
 # def hello(name):
