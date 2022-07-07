@@ -13,6 +13,12 @@ def hi(name):
     print(name)
     return f"<h1>Hi, {name}</h1>"
 
+@app.route('/repeat/<roll>/<tim>')
+def repeat(roll):
+    name= "Sam"
+    return f"<name> * int(roll))<br>"
+
+
 if __name__=="__main__":   # Ensure this file is being run directly and not from a different module    
     app.run(debug=True)
 
