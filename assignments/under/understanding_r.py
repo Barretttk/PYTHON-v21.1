@@ -16,8 +16,8 @@ def hi(name):
 @app.route('/repeat/<roll>/<name>')
 def repeat(roll,name):
     # name= "yeah<br>"
-    print f"name<br>"
-    return (name * int(roll))
+    print(name)
+    return f"{name * int(roll)<br>}"
 
 
 if __name__=="__main__":   # Ensure this file is being run directly and not from a different module    
