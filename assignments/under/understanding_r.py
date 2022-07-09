@@ -16,7 +16,7 @@ def hi(name):
 @app.route('/repeat/<roll>/<name>')
 def repeat(roll,name):
     # name= "yeah<br>"
-    print(name)
+    print f"name<br>"
     return (name * int(roll))
 
 
