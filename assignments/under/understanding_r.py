@@ -17,7 +17,7 @@ def hi(name):
 def repeat(roll,name):
     # name= "yeah<br>"
     print(name)
-    return f"{name * int(roll)<br>}"
+    return f"{name * int(roll)}"
 
 
 if __name__=="__main__":   # Ensure this file is being run directly and not from a different module    
