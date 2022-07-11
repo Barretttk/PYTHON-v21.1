@@ -1,33 +1,45 @@
-from typing_extensions import Self
-
-
-
 
 class BankAccount: 
 
 
-    def __init__(self,int_rate, balance):
-        pass
-    Self.ammount
+    def __init__(self,int_rate = .06,balance = 0):
+        self.int_rate = int_rate
+        self.balance = balance
 
 
-    def deposite(self, amount):
-        sum1 =(amount + self)
-        return sum1
-    print("new balance");
-
+    def deposit(self, amount):
+        self.balance += amount
+        return self
 
 
     def withdraw(self, amount):
-        withdraw = sub (amount -- self)
-    if sum2 is < sum1:
-    print("Insufficient funds: Charging a $5 fee and deduct $5")
-
+        if amount > self.balance:
+            print("Insufficient funds: Charging a $5 fee")
+            self.balance -= 5
+        elif amount < self.balance:
+            self.balance -= amount
+        return self
 
 
     def display_account_info(self):
-        sum1 = balance
-    print(f"balance"+ sum1)
+        print(self.balance)
+        return self
 
     def yield_interest(self):
-    print(balance)
+        
+        print(self.balance)
+
+tim = BankAccount(.02,200)
+tim.display_account_info()
+
+corn = BankAccount(.08,0)
+corn.deposit(3000).display_account_info()
+
+joseph = BankAccount(.05, 1522)
+joseph.deposit(1000).withdraw(500).display_account_info()
+
+miguel = BankAccount()
+miguel.display_account_info()
+
+isaac = BankAccount(balance = 20,int_rate=0.09)
+isaac.display_account_info().deposit(6000).display_account_info()
