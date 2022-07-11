@@ -1,7 +1,6 @@
 
 class BankAccount: 
 
-
     def __init__(self,int_rate = .06,balance = 0):
         self.int_rate = int_rate
         self.balance = balance
@@ -26,8 +25,13 @@ class BankAccount:
         return self
 
     def yield_interest(self):
-        
         print(self.balance)
+        print(self.int_rate)
+        self.balance *= 1+ self.int_rate
+        print(self.balance)
+        return self
+
+
 
 tim = BankAccount(.02,200)
 tim.display_account_info()
@@ -39,7 +43,7 @@ joseph = BankAccount(.05, 1522)
 joseph.deposit(1000).withdraw(500).display_account_info()
 
 miguel = BankAccount()
-miguel.display_account_info()
+miguel.display_account_info().withdraw(200)
 
 isaac = BankAccount(balance = 20,int_rate=0.09)
-isaac.display_account_info().deposit(6000).display_account_info()
+isaac.display_account_info().deposit(6000).display_account_info().yield_interest()
