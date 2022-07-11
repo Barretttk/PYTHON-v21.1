@@ -34,13 +34,13 @@ class BankAccount:
 
 
 tim = BankAccount(.02,200)
-tim.display_account_info()
+tim.display_account_info().deposit(200).display_account_info().deposit(1500).display_account_info().deposit(252).display_account_info()
 
 corn = BankAccount(.08,0)
 corn.deposit(3000).display_account_info()
 
 joseph = BankAccount(.05, 1522)
-joseph.deposit(1000).withdraw(500).display_account_info()
+joseph.deposit(1000).withdraw(500).display_account_info().deposit(200).display_account_info().withdraw(100).display_account_info().withdraw(500).display_account_info()
 
 miguel = BankAccount()
 miguel.display_account_info().withdraw(200)
