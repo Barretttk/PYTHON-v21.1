@@ -1,0 +1,34 @@
+SELECT * FROM dojos_and_ninjas_schema.dojos;
+
+-- INSERT INTO dojos(name) 
+-- VALUES('Wun Chun'),('Iron Fist'),('Shi_fu');
+-- INSERT INTO dojos(name) 
+-- VALUES('Cobra Ki'),('Miso Dojo'),('Sun Tzu');
+
+-- DELETE FROM dojos WHERE id = 3;
+-- DELETE FROM dojos WHERE id = 1;
+-- DELETE FROM dojos WHERE id = 7;
+-- DELETE FROM dojos WHERE id = 8;
+-- DELETE FROM dojos WHERE id = 9;
+-- DELETE FROM dojos WHERE id = 10;
+-- DELETE FROM dojos WHERE id = 11;
+-- DELETE FROM dojos WHERE id = 12;
+-- DELETE FROM dojos WHERE id = 5;
+
+SELECT * 
+FROM ninjas
+WHERE dojo_id = 2;
+
+SELECT * 
+FROM ninjas
+WHERE dojo_id = 6;
+
+SELECT * FROM dojos_and_ninjas_schema.ninjas;
+
+-- INSERT INTO ninjas (first_name, last_name, age,dojo_id) 
+-- VALUES('Rick','James','35', '1'),('Robert','Downing','45','2'),('Jeff','Walston','21','3');
+-- INSERT INTO ninjas (first_name, last_name, age,dojo_id) 
+-- VALUES('Jim','Jones','25', '1'),('Lucky','Mann','18','2'),('Harvey','Twoface','21','3'),('Clark','Kent','62', '1'),('Mikey','Zaza','29','2'),('Ottis','Washington','22','3');
+
+-- INSERT INTO ninjas (first_name, last_name, age,dojo_id) 
+-- VALUES('Timothy','Barrett','35', '1')

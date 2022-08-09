@@ -9,22 +9,20 @@
 # for i in range(0, 1000, 5):
 #     print(i)
 
-# Counting, the Dojo Way
+Counting, the Dojo Way
 for i in range(1, 100):
+    print(i)
     if i % 5 == 0 :
         print("coding")
-    elif i % 10 == 0:
+    else i % 10 == 0:
         print("Coding Dojo")
-    
-    # else i % 10:
-    #     print("coding Dojo")
 
- 
+
 # Whoa. That Suckers's Huge
-max=int()
-for i in range(0, 500000):
-    if i %2 == 0:
-    print
+# max=int()
+# for i in range(0, 500000):
+#     if i %2 == 0:
+#     print
 
 # # Countdown by fours
 # for i in range(2018, 0, -4):
@@ -32,3 +30,5 @@ for i in range(0, 500000):
 
 # # Flexible Counter 
 
+def multiply(a= 2, b=12):
+    = a % b

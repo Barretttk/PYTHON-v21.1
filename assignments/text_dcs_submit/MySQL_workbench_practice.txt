@@ -1,0 +1,10 @@
+SELECT * FROM names_schema.names;
+
+INSERT INTO names(name)  
+VALUES('Tim');
+
+UPDATE names
+SET name = 'Timothy'
+WHERE id = 1;
+
+DELETE FROM dojos WHERE id = 1

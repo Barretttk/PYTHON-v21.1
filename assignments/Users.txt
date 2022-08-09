@@ -1,0 +1,29 @@
+SELECT * FROM users_schema.users;
+
+-- INSERT INTO users (first_name, last_name, email) 
+-- VALUES('James', 'Brown','Jb@gmail'),('Jamila','Brass','JF@gmail.com'),('Ronald','McDonald','RD@Mcdonald.com');
+
+-- SELECT email 
+-- FROM users;
+
+-- UPDATE users
+-- SET last_name = 'Pancakes'
+-- WHERE id =3;
+
+-- SELECT first_name
+-- FROM users;
+
+-- SELECT email 
+-- FROM users;
+
+SELECT *
+FROM users
+LIMIT 3
+OFFSET 2;
+
+-- DELETE FROM users WHERE id =2;
+
+-- SELECT *
+-- FROM users
+-- ORDER BY first_name DESC;
+

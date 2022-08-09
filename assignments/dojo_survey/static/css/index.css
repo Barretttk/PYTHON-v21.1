@@ -1,0 +1,16 @@
+* {
+    padding: 0%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+    background-color:slategrey ;
+}
