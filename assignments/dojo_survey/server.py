@@ -15,12 +15,12 @@ def form():
 def submitted_info():
     name = session ["name"]
     location = session ["location"]
-    languages = session ["languages"]
+    schools = session ["schools"]
     comment = session ["comment"]
     agree = session ["agree"]
     print ("submitted_info")
 
-    return render_template("result.html", name = name, languages = languages, location = location, comment = comment, agree = agree)
+    return render_template("result.html", name = name, schools = schools, location = location, comment = comment, agree = agree)
 
 
 
@@ -28,7 +28,7 @@ def submitted_info():
 def infocreated():
     session["name"] = request.form ["name"]
     session["location"] = request.form ["location"]
-    session["languages"] = request.form ["languages"]
+    session["schools"] = request.form ["schools"]
     session["comment"] = request.form ["comment"]
     session["agree"] = request.form ["agree"]
 

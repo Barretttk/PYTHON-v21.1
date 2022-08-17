@@ -1,6 +1,7 @@
 from flask_app import app
 from flask import render_template, redirect, request, session, flash, jsonify
-
+from flask_bcrypt import Bcrypt
+bcrypt = Bcrypt(app)
 #==================================
 #import models from models folder
 #==================================
@@ -11,18 +12,17 @@ from flask_app.models import model_user
 
 @app.route("/")
 def index():
-    if "uuid" in session:
+    if "id" in session:
         return redirect("/dashboard")
-    return render_template("landing_page/index.html")
+    return render_template("index.html")
 
-@app.route("/")
+@app.route("/dashboard")
 def index():
-    if "uuid" not in session:
-        return redirect("/dashboard")
-    return render_template("landing_page/index.html")
+    if "id" not in session:
+        return redirect("/")
+    return render_template("dashboard.html")
 
 
-@app.route("/", defaults={"path": ''})
 @app.route('/<path:path>')
 def catch_all(path):
         return 'page not found'
