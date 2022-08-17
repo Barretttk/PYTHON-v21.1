@@ -17,7 +17,7 @@ def index():
     return render_template("index.html")
 
 @app.route("/dashboard")
-def index():
+def dashboard():
     if "id" not in session:
         return redirect("/")
     return render_template("dashboard.html")
