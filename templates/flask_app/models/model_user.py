@@ -134,7 +134,7 @@ class User:
             #cheeck db to see if email already exist
             existing_user = User.get_one_by_email({'email' : data['email']})
             if not existing_user:
-                flash("Email not found!", 'err_user_email_login')
+                flash("No email found!", 'err_user_email_login')
                 is_valid = False
 
         if len(data['password']) < 1:
@@ -143,11 +143,11 @@ class User:
 
         if is_valid:
             # check bcrypt
-            if not bcrypt.check_password_hash(existing_user.password, data["password"]):
-                flash("Invalid Credentials!", 'err_user_password_login')
+            if not bcrypt.password_hash(existing_user, data["password"]):
+                flash("invalid Credentials!", 'err_user_password_login')
                 is_valid = False
 
-                #get the ide into seaion
+                #get the ide inot seaion
                 session['uuid'] = existing_user.id
 
         return is_valid

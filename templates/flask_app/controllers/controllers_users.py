@@ -1,4 +1,3 @@
-
 from flask_app import app
 from flask import render_template, redirect, request, session, flash, jsonify
 from flask_bcrypt import Bcrypt
@@ -8,22 +7,6 @@ bcrypt = Bcrypt(app)
 #==================================
 
 from flask_app.models import model_user
-
-#===========  LOGOUT  =================
-
-@app.route("/logout")
-def logout():
-    del session["id"]
-    return redirect("/")
-
-#================  LOGIN  ===================
-
-@app.route('/user/login', methods=['POST'])
-def user_login():
-# validate
-    model_user.User.validate_login(request.form)
-
-    return render_template("dashboard.html")
 
 #===========  CREATE  =================
 

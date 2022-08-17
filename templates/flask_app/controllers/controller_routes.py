@@ -12,13 +12,13 @@ from flask_app.models import model_user
 
 @app.route("/")
 def index():
-    if "uuid" in session:
+    if "id" in session:
         return redirect("/dashboard")
     return render_template("index.html")
 
 @app.route("/dashboard")
 def dashboard():
-    if "uuid" not in session:
+    if "id" not in session:
         return redirect("/")
     return render_template("dashboard.html")
 
