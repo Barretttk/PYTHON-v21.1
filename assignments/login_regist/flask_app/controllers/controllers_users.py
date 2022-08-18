@@ -13,7 +13,7 @@ from flask_app.models import model_user
 
 @app.route("/logout")
 def logout():
-    del session["id"]
+    session.clear()
     return redirect("/")
 
 #================  LOGIN  ===================
@@ -23,7 +23,13 @@ def user_login():
 # validate
     model_user.User.validate_login(request.form)
 
-    return render_template("dashboard.html")
+#store id in session
+    user = model_user.User.get_one_by_email(request.form)
+    
+    if user:
+        session["uuid"] = user.id
+        return redirect("/dashboard")
+    return redirect("/")
 
 #===========  CREATE  =================
 
@@ -43,7 +49,7 @@ def create():
     }
     id = model_user.User.create(data)
 
-    #store ID inot session
+    #store ID into session
     session["uuid"] = id
     return redirect("/")
 

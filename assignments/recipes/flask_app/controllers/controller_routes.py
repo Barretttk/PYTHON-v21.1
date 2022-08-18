@@ -14,7 +14,7 @@ from flask_app.models import model_user
 def index():
     if "uuid" in session:
         return redirect("/dashboard")
-    return render_template("index.html")
+    return render_template("login.html")
 
 @app.route("/dashboard")
 def dashboard():

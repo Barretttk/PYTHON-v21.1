@@ -27,37 +27,37 @@
 
 <body>
 
-    <h1> Welcome </h1>
+    <h1> Recipe Share </h1>
 
     <div class="box">
         <div class="regbox">
             <h2> Register:</h2>
-            <form action="/user/create" method="post">
+            <form action="/user/registration" method="post">
                 <div class="mb-3">
                     <label for="first_name"> First Name: </label>
                     <input class="form-control" type "text" name="first_name" id="first_name">
-                    {% for message in get_flashed_messages(category_filter=["err_user_first_name"])%}
+                    {% for message in get_flashed_messages(category_filter=["err_reg_first_name"])%}
                     <p class="alert alert-danger">{{ message }} </p>
                     {% endfor %}
                 </div>
                 <div class="mb-3">
                     <label for="last_name"> Last Name: </label>
                     <input class="form-control" type "text" name="last_name" id="last_name">
-                    {% for message in get_flashed_messages(category_filter=["err_user_last_name"])%}
+                    {% for message in get_flashed_messages(category_filter=["err_reg_last_name"])%}
                     <p class="alert alert-danger">{{ message }} </p>
                     {% endfor %}
                 </div>
                 <div class="mb-3">
                     <label for="Email"> Email: </label>
                     <input class="form-control" type "text" name="email" id="email">
-                    {% for message in get_flashed_messages(category_filter=["err_user_email"])%}
+                    {% for message in get_flashed_messages(category_filter=["err_reg_email"])%}
                     <p class="alert alert-danger">{{ message }} </p>
                     {% endfor %}
                 </div>
                 <div class="mb-3">
                     <label for="password"> Password: </label>
                     <input class="form-control" type "text" name="password" id="password">
-                    {% for message in get_flashed_messages(category_filter=["err_user_password"])%}
+                    {% for message in get_flashed_messages(category_filter=["err_reg_password"])%}
                     <p class="alert alert-danger">{{ message }} </p>
                     {% endfor %}
                 </div>
@@ -65,7 +65,7 @@
                     <label for="confirm_pw"> Password Confirmation: </label>
                     <input class="form-control" type "text" name="confirm_pw" id="confirm_pw">
                     {% for message in
-                    get_flashed_messages(category_filter=["err_user_confrim_pw"])%}
+                    get_flashed_messages(category_filter=["err_reg_confirm_pw"])%}
                     <p class="alert alert-danger">{{ message }} </p>
                     {% endfor %}
                 </div>
@@ -92,7 +92,7 @@
                     <p class="alert alert-danger">{{ message }} </p>
                     {% endfor %}
                 </div>
-                <button type="submit" class="btn btn-danger">login User</button>
+                <button type="submit" class="btn btn-danger">Login</button>
             </form>
         </div>
     </div>
