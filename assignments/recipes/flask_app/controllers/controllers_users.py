@@ -34,7 +34,7 @@ def user_login():
             flash("wrong credentials", "err_user_password_login")
 
         session["first_name"] = existing_user.first_name
-        # session["email"] = existing_email.email
+        session["email"] = existing_user.email
         session["uuid"] = existing_user.id
 
         return redirect("/dashboard")

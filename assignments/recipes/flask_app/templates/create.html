@@ -38,40 +38,53 @@
         <a>Logout</a>
     </p>
     <div>
-    <form method="post" action=">" 
+    <form method="post" action="/recipe/new"> 
 
         <div>
             <label>
                 Name:
             </label>
-            <input type="" name="name >
-            <!-- {% for message in get_flashed_messages(category_filter=["err_rec_name"])%}
-            <p class="alert alert-danger">{{ message }} </p> -->
+            <input type="" name="name" >
+            {% for message in get_flashed_messages(category_filter=["err_rec_name"])%}
+                    <p class="alert alert-danger">{{ message }} </p>
+                    {% endfor %}
         </div>
         <div>
             <label>
                 Description
             </label>
             <textarea type="text" name="description" /></textarea>
+            {% for message in get_flashed_messages(category_filter=["err_rec_description"])%}
+                    <p class="alert alert-danger">{{ message }} </p>
+                    {% endfor %}
         </div>
         <div>
             <label>
                 Instructions
             </label>
-            <textarea type="text" name="instructions" /></textarea>
+            <textarea type="text" name="instruction" /></textarea>
+            {% for message in get_flashed_messages(category_filter=["err_rec_instruction"])%}
+                    <p class="alert alert-danger">{{ message }} </p>
+                    {% endfor %}
         </div>
         <div>
             <label>
                 Date Cooked/Made:
             </label>
             <input type="date" name="cooked_date" />
+            {% for message in get_flashed_messages(category_filter=["err_rec_cooked_date"])%}
+                    <p class="alert alert-danger">{{ message }} </p>
+                    {% endfor %}
         </div>
         <div>
             <label>
-                under 30 minutes:
+                Under 30 minutes:
             </label>
+            <!-- {% for message in get_flashed_messages(category_filter=["err_reg_last_name"])%}
+                    <p class="alert alert-danger">{{ message }} </p>
+                    {% endfor %} -->
             <div>
-                Yes <input type="radio" name="under_30" value="1" />
+                Yes <input type="radio" name="under_30" value="1" checked/>
                 No <input type="radio" name="under_30" value="0"/>
         </div>
 
