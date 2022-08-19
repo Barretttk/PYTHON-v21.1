@@ -76,7 +76,7 @@
                         <td>{{recipe.user.first_name}} {{recipe.user.last_name}}
                         </td>
                         <td>
-                            <a href=""> View recipe </a> 
+                            <a href="/recipes/{{recipe.id}}"> View recipe </a> 
                             {% if session["user_id"] == recipe.user.id: %}|
                             <a href=""> Edit </a> |
                             <a href=""> Delete </a>

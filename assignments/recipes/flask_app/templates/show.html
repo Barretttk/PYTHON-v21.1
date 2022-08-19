@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,9 +14,11 @@
         h1 {
             text-align: center;
         }
+
         p {
             text-align: center;
         }
+
         div {
             text-align: center;
         }
@@ -24,18 +27,45 @@
 
 <body>
 
-<h1>Welcome {{user.first_name}}</h1>
+    <h1>Welcome {{session["first_name"]}}</h1>
 
     <a href="/logout">Logout</a>
 
 
-    <form action="/logout" method="Get">
-        <button type="submit" class="btn btn-danger">Logout</button>
-        </form>
 
-    
 
-</div>
+    <div>
+        <h2> Posted By:{{current_recipe.user.first_name}} </h2>
+    </div>
+    <div class="container">
+        <div>
+            <p>
+                Description: {{current_recipe.description}}
+            </p>
+        </div>
+        <div>
+            <p>
+                Under 30 Minutes?
+                {% if current_recipe.under_30 == 1: %}
+                Yes
+                {% else: %}
+                No
+                {%endif%}
+            </p>
+        </div>
+        <div>
+            <p>
+                Instructions: {{current_recipe.instruction}}
+            </p>
+        </div>
+        <div>
+            <p>
+                Date Made: {{current_recipe.cooked_date}}
+            </p>
+        </div>
+    </div>
+
+
 
 </body>
-    
+</html>

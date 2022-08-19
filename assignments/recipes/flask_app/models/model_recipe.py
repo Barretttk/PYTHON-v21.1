@@ -1,4 +1,6 @@
 
+from tkinter.tix import Select
+from unittest import result
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app import DATABASE
 from flask_app.models import model_user
@@ -87,6 +89,25 @@ class Recipe:
             list_recipes.append(current_recipe)
         return list_recipes
 
+#================== GET ONE BY USER ====================
+
+@classmethod
+def get_one_with_user(cls,data):
+    query = "Select * FROM recipes JOIN users on recipes.User_id = user.id WHERE recipes.id = %(id)s"
+
+    result = connectToMySQL(DATABASE).query_db(query,data)
+
+    if len(result) > 0:
+        current_recipe = cls(result[0])
+        user_data = {
+              **result[0],
+                "created_at" : result[0]["users.created_at"],
+                "updated_at" : result[0]["users.updated_at"],
+                "id" : result[0]["users.id"]
+        }
+        current_recipe.user = model_user(user_data)
+    else:
+        return None
 
 @staticmethod
 def validate_recipe(data):

@@ -43,3 +43,15 @@ def create_recipe():
     user_id = model_recipe.Recipe.create(data)
 
     return redirect("/recipes")
+
+#===================== DISPLAY RECIPES=====================
+
+@app.route("/recipes/<int:id>")
+def display_one(id):
+    # if "email" not in session:
+        #     return redirect("/")
+    data = {
+        "id" : id
+    }
+    current_recipe = model_recipe.Recipe.get_one_with_user(data)
+    return render_template("dashboard.html", current_recipe = current_recipe)
