@@ -105,7 +105,8 @@ def get_one_with_user(cls,data):
                 "updated_at" : result[0]["users.updated_at"],
                 "id" : result[0]["users.id"]
         }
-        current_recipe.user = model_user(user_data)
+        current_recipe.user = model_user.User(user_data)
+        return current_recipe
     else:
         return None
 

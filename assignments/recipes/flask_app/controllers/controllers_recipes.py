@@ -21,13 +21,14 @@ def show_recipes():
     list_recipes = model_recipe.Recipe.get_all_with_users()
     return render_template("dashboard.html", list_recipes = list_recipes)
 
+
 @app.route("/recipe/new")
 def create_recipes():
         #validate
 
-        # if "email" not in session:
-        #     return redirect("/")
-        # else:
+        if "email" not in session:
+            return redirect("/")
+        else:
             return render_template("create.html")
 
 @app.route("/recipe/new", methods = ["post"])
@@ -48,8 +49,8 @@ def create_recipe():
 
 @app.route("/recipes/<int:id>")
 def display_one(id):
-    # if "email" not in session:
-        #     return redirect("/")
+    if "email" not in session:
+            return redirect("/")
     data = {
         "id" : id
     }
