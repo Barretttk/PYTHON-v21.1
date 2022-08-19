@@ -7,6 +7,7 @@ bcrypt = Bcrypt(app)
 #==================================
 
 from flask_app.models import model_user
+from flask_app.models import model_recipe
 
 # ================== default routes ===============
 
@@ -21,7 +22,8 @@ def dashboard():
     if "uuid" not in session:
         return redirect("/")
     
-    return render_template("dashboard.html",user = model_user.User.get_one({"id":session["uuid"]}))
+    list_recipes = model_recipe.Recipe.get_all_with_users()
+    return render_template("dashboard.html", list_recipes = list_recipes, user = model_user.User.get_one({"id":session["uuid"]}))
 
 
 @app.route('/<path:path>')

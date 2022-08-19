@@ -13,7 +13,7 @@ from flask_app.models import model_user
 
 #=================  LOGOUT  =================
 
-@app.route("/logout")
+@app.route("/user/logout")
 def logout():
     session.clear()
     return redirect("/")
@@ -37,7 +37,7 @@ def user_login():
         session["email"] = existing_user.email
         session["uuid"] = existing_user.id
 
-        return redirect("/dashboard")
+        return redirect("/recipes")
     else:
         return redirect("/")
 
@@ -73,32 +73,4 @@ def process_registration():
     session["uuid"] = user_id
 
     return redirect("/dashboard")
-
-#================  SHOW  =================
-@app.route("/user/<int:id>/")
-def user_show(id):
-    return render_template("user_edit.html")
-
-
-#================  EDIT  =================
-
-@app.route("/user/<int:id>/edit")
-def user_edit(id):
-    return render_template("user_edit.html")
-
-#================  UPDATE  =================
-
-@app.route("/user/<int:id>/update", methods = ["post"])
-def user_update(id):
-    return redirect("/")
-
-#================  DELETE  =================
-
-@app.route("/user/<int:id>/delete")
-def user_delete(id):
-    return redirect("/")
-
-
-
-
 

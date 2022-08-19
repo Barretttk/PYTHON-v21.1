@@ -1,6 +1,4 @@
 
-from tkinter.tix import Select
-from unittest import result
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app import DATABASE
 from flask_app.models import model_user
@@ -57,13 +55,13 @@ class Recipe:
 
     @classmethod
     def update_one(cls, data:dict) -> None:
-        query = "UPDATE recipes SET (name) = %(name)s, description = %(description)s, instruction = %(instruction)s, cooked_date = %(cooked_date)s,under_30 = %(under_30)s;"
+        query = "UPDATE recipes SET name = %(name)s, description = %(description)s, instruction = %(instruction)s, cooked_date = %(cooked_date)s,under_30 = %(under_30)s WHERE id = %(id)s;"
         return connectToMySQL(DATABASE).query_db(query, data)
 
 # =====================  DELETE  =======================
 
     @classmethod
-    def delete(cls,data:dict) -> None:
+    def delete_one(cls,data:dict) -> None:
         query = "DELETE FROM recipes WHERE id = %(id)s"
         return connectToMySQL(DATABASE).query_db(query, data)
 
@@ -91,49 +89,49 @@ class Recipe:
 
 #================== GET ONE BY USER ====================
 
-@classmethod
-def get_one_with_user(cls,data):
-    query = "Select * FROM recipes JOIN users on recipes.User_id = user.id WHERE recipes.id = %(id)s"
+    @classmethod
+    def get_one_with_user(cls,data):
+        query = "Select * FROM recipes JOIN users on recipes.User_id = users.id WHERE recipes.id = %(id)s"
 
-    result = connectToMySQL(DATABASE).query_db(query,data)
+        result = connectToMySQL(DATABASE).query_db(query,data)
 
-    if len(result) > 0:
-        current_recipe = cls(result[0])
-        user_data = {
-              **result[0],
-                "created_at" : result[0]["users.created_at"],
-                "updated_at" : result[0]["users.updated_at"],
-                "id" : result[0]["users.id"]
-        }
-        current_recipe.user = model_user.User(user_data)
-        return current_recipe
-    else:
-        return None
+        if len(result) > 0:
+            current_recipe = cls(result[0])
+            user_data = {
+                **result[0],
+                    "created_at" : result[0]["users.created_at"],
+                    "updated_at" : result[0]["users.updated_at"],
+                    "id" : result[0]["users.id"]
+            }
+            current_recipe.user = model_user.User(user_data)
+            return current_recipe
+        else:
+            return None
 
-@staticmethod
-def validate_recipe(data):
-    is_valid = True
+    @staticmethod
+    def validate_recipe(data):
+        is_valid = True
 
-    if data['name'] == "":
-        flash("Name can not be empty.","err_rec_name")
-        is_valid = False
-    if data["description"] == "":
-        flash("Desctription can not be empty.","err_rec_description")
-        is_valid = False
-    if data["instruction"] == "":
-        flash("Instructions can not be empty.","err_rec_instruction")
-        is_valid = False
-    if data["cooked_date"] == "":
-        flash("Must have a date.","err_rec_cooked_date")
-        is_valid = False
+        if data['name'] == "":
+            flash("Name can not be empty.","err_rec_name")
+            is_valid = False
+        if data["description"] == "":
+            flash("Desctription can not be empty.","err_rec_description")
+            is_valid = False
+        if data["instruction"] == "":
+            flash("Instructions can not be empty.","err_rec_instruction")
+            is_valid = False
+        if data["cooked_date"] == "":
+            flash("Must have a date.","err_rec_cooked_date")
+            is_valid = False
 
-    if len(data["name"]) < 3:
-        flash("Name must be at least 3 characters long", "err_rec_name")
-    if len(data["description"]) < 3:
-        flash("Desctription must be at least 3 characters long.","err_rec_description")
-        is_valid = False
-    if len(data["instruction"]) < 3:
-        flash("Instructions must be at least 3 characters long.","err_rec_instruction")
-        is_valid = False
+        if len(data["name"]) < 3:
+            flash("Name must be at least 3 characters long", "err_rec_name")
+        if len(data["description"]) < 3:
+            flash("Desctription must be at least 3 characters long.","err_rec_description")
+            is_valid = False
+        if len(data["instruction"]) < 3:
+            flash("Instructions must be at least 3 characters long.","err_rec_instruction")
+            is_valid = False
 
-    return is_valid
+        return is_valid

@@ -29,15 +29,15 @@
 
     <h1>Welcome {{session["first_name"]}}</h1>
 
-    <a href="/logout">Logout</a>
+    <a href="/user/logout">Logout</a>
 
 
 
 
-    <div>
-        <h2> Posted By:{{current_recipe.user.first_name}} </h2>
-    </div>
     <div class="container">
+        <div>
+            <h2> Posted By:{{current_recipe.user.first_name}} </h2>
+        </div>
         <div>
             <p>
                 Description: {{current_recipe.description}}
@@ -68,4 +68,5 @@
 
 
 </body>
+
 </html>
