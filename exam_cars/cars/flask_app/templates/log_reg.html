@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscriptions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        div {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="regbox">
+            <h2> Register:</h2>
+            <form action="/user/registration" method="post">
+                <div class="mb-3">
+                    <label for="first_name"> First Name: </label>
+                    <input class="form-control" type "text" name="first_name" id="first_name">
+                    {% for message in get_flashed_messages(category_filter=["err_reg_first_name"])%}
+                    <p class="alert alert-danger">{{ message }} </p>
+                    {% endfor %}
+                </div>
+                <div class="mb-3">
+                    <label for="last_name"> Last Name: </label>
+                    <input class="form-control" type "text" name="last_name" id="last_name">
+                    {% for message in get_flashed_messages(category_filter=["err_reg_last_name"])%}
+                    <p class="alert alert-danger">{{ message }} </p>
+                    {% endfor %}
+                </div>
+                <div class="mb-3">
+                    <label for="Email"> Email: </label>
+                    <input class="form-control" type "text" name="email" id="email">
+                    {% for message in get_flashed_messages(category_filter=["err_reg_email"])%}
+                    <p class="alert alert-danger">{{ message }} </p>
+                    {% endfor %}
+                </div>
+                <div class="mb-3">
+                    <label for="password"> Password: </label>
+                    <input class="form-control" type "text" name="password" id="password">
+                    {% for message in get_flashed_messages(category_filter=["err_reg_password"])%}
+                    <p class="alert alert-danger">{{ message }} </p>
+                    {% endfor %}
+                </div>
+                <div class="mb-3">
+                    <label for="confirm_pw"> Password Confirmation: </label>
+                    <input class="form-control" type "text" name="confirm_pw" id="confirm_pw">
+                    {% for message in
+                    get_flashed_messages(category_filter=["err_reg_confrim_pw"])%}
+                    <p class="alert alert-danger">{{ message }} </p>
+                    {% endfor %}
+                </div>
+                <button type="submit" class="btn btn-primary">Register User</button>
+            </form>
+        </div>
+
+        <div class="logbox">
+            <h2>Login</h2>
+            <form action="/user/login" method="post">
+                <div class="mb-3">
+                    <label for="email"> Email: </label>
+                    <input class="form-control" type "text" name="email" id="femail">
+                    {% for message in
+                    get_flashed_messages(category_filter=["err_user_email_login"])%}
+                    <p class="alert alert-danger">{{ message }} </p>
+                    {% endfor %}
+                </div>
+                <div class="mb-3">
+                    <label for="password"> Password: </label>
+                    <input class="form-control" type "text" name="password" id="password">
+                    {% for message in
+                    get_flashed_messages(category_filter=["err_user_password_login"])%}
+                    <p class="alert alert-danger">{{ message }} </p>
+                    {% endfor %}
+                </div>
+                <button type="submit" class="btn btn-danger">Login User</button>
+            </form>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

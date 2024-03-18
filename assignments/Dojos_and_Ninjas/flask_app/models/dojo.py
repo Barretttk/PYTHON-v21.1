@@ -29,7 +29,7 @@ class Dojo:
 
     @classmethod
     def create_dojo(cls, data):
-        query = "INSERT INTO dojos (name) VALUES (%(name)s);"
+        query = "INSERT INTO dojos (name) VALUES %(name)s;"
         results = connectToMySQL(DATABASE).query_db(query, data)
         return results
 

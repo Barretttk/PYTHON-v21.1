@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        div {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+        <div class="nav">
+            <h1>Welcome {{session["first_name"]}}</h1>
+            <div class="create">
+                <p>
+                    <a href="/mag/add"> Add Magazine </a> |
+                    <a href="/user/{{user.id}}/update"> Account </a> |
+                </p>
+            </div>
+            <div class="logout">
+                <p>
+                    <a href="/user/logout"> Logout </a>
+                </p>
+            </div>
+        </div>
+        <div>
+            <h1>Magazines</h1>
+            <div>
+                {% for magazines in list_magazines%}
+                <tr>
+                    <td><a href="mag/{{user.id}}">{{magazines.title}}</a> added By {{magazines.user.first_name}} {{magazines.user.last_name}}
+                    <br>
+                </td>
+
+                </tr>
+                {% endfor %}
+                </table>
+            </div>
+        
+        </div>
+    </div>
+</body>
+
+</html>

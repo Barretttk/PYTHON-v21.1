@@ -1,0 +1,30 @@
+* {
+    padding: 0%;
+    margin: auto;
+
+}
+
+.header{
+
+}
+.box{
+    margin-top: 50px;
+    display: flex;
+    flex-direction:row;
+    height: auto;
+    width: 550px;
+    background-color:rgb(17, 166, 211) ;
+}
+.regbox{
+    /* background-color: rgb(51, 79, 47); */
+    height: auto;
+    width: 200px;
+    margin-right: 20px;
+}
+.logbox{
+    /* background-color: rgb(50, 79, 47); */
+    height: 100px;
+    width: 200px;
+    margin-left: 20px;
+
+}

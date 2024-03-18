@@ -11,6 +11,7 @@ bcrypt = Bcrypt(app)
 
 from flask_app.models import model_recipe
 
+
 @app.route("/recipes")
 def show_recipes():
     #validate user is logged in

@@ -24,7 +24,7 @@ def dojos():
 def create_dojo():
 
     print(request.form)
-    Dojo.create_dojo(request.form)
+    models.dojo.Dojo.create_dojo(request.form)
     return redirect("/")
 
 
